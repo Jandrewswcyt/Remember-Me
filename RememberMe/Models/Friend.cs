@@ -10,18 +10,17 @@ namespace RememberMe.Models
         public int Id {get; set; }
         [Required]
         [StringLength(255)]
-        public string Name {get; set;}
-        public ICollection<string> NickNames {get; set; } = new Collection<string>();  
+        public string Name {get; set;} 
         public DateTime DateCreated { get; set; }
         public DateTime LastTimeUpdated { get; set; }
 
 
     }
 
-    public class FriendContactDetails
-    {
-        public int PhoneNumber { get; set; }  
-        [StringLength(255)] 
-        public string EmailAddress {get; set; }
-    }
+    // public class FriendContactDetails
+    // {
+    //     public int PhoneNumber { get; set; }  
+    //     [StringLength(255)] 
+    //     public string EmailAddress {get; set; }
+    // }
 }
