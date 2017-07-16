@@ -11,9 +11,10 @@ using System;
 namespace RememberMe.Migrations
 {
     [DbContext(typeof(RememberMeDbContext))]
-    partial class RememberMeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170716114616_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

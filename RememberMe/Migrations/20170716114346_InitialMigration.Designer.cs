@@ -11,8 +11,8 @@ using System;
 namespace RememberMe.Migrations
 {
     [DbContext(typeof(RememberMeDbContext))]
-    [Migration("20170715170455_Initial")]
-    partial class Initial
+    [Migration("20170716114346_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,10 +25,6 @@ namespace RememberMe.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<DateTime>("LastTimeUpdated");
 
                     b.Property<string>("Name")
                         .IsRequired()
