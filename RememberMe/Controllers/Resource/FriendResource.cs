@@ -11,6 +11,7 @@ namespace RememberMe.Controllers.Resource
         [Required]
         [StringLength(255)]
         public string Name {get; set; }
+        public ContactDetails ContactDetails { get; set; }
 
     }
 

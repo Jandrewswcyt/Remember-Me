@@ -8,7 +8,11 @@ namespace RememberMe.Mapping
     {
         public MappingProfile()
         {
+            
             CreateMap<Friend, FriendResource>(); 
+            CreateMap<ContactDetails,ContactDetailsResource>();
+            //API Resource to Domain
+            CreateMap<FriendResource,Friend>(); 
         }
     }
 }

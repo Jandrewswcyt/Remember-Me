@@ -37,9 +37,10 @@ namespace RememberMe.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateFriend([FromBody]Friend friend)
+        public IActionResult CreateFriend([FromBody]FriendResource friendResource)
         {
-            return Ok(friend); 
+            var vehicle = mapper.Map<FriendResource, Friend>(friendResource); 
+            return Ok(vehicle); 
         }
     }
 }
