@@ -11,16 +11,10 @@ namespace RememberMe.Models
         [Required]
         [StringLength(255)]
         public string Name {get; set;} 
-        // public DateTime DateCreated { get; set; }
-        // public DateTime LastTimeUpdated { get; set; }
+
+        public ContactDetails ContactDetails { get; set; }
 
 
     }
 
-    // public class FriendContactDetails
-    // {
-    //     public int PhoneNumber { get; set; }  
-    //     [StringLength(255)] 
-    //     public string EmailAddress {get; set; }
-    // }
 }

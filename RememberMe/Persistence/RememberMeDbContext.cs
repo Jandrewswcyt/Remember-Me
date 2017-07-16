@@ -16,6 +16,10 @@ namespace RememberMe.Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder); 
+
+            builder.Entity<Friend>().OwnsOne(
+                p =>p.ContactDetails
+            );
         }
         
     }

@@ -9,6 +9,7 @@ using RememberMe.Controllers.Resource;
 
 namespace RememberMe.Controllers
 {
+    [Route("/api/friends")]
     public class FriendsController : Controller
     {
         private readonly RememberMeDbContext context;
@@ -20,7 +21,7 @@ namespace RememberMe.Controllers
             this.context = context;
 
         }
-        [HttpGet("/api/friends")]
+        [HttpGet]
         public async Task<IEnumerable<FriendResource>> GetFriends()
         {
             var friends = await context.Friends.ToListAsync();
@@ -34,6 +35,11 @@ namespace RememberMe.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult CreateFriend([FromBody]Friend friend)
+        {
+            return Ok(friend); 
         }
     }
 }
