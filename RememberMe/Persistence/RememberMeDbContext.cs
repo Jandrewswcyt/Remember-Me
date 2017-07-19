@@ -1,12 +1,13 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using RememberMe.Models;
+using RememberMe.Core.Models;
 
 namespace RememberMe.Persistence
 {
     public class RememberMeDbContext : DbContext 
     {
-        public DbSet<Friend> Friends { get; set; }
+        public virtual DbSet<Friend> Friends { get; set; }
+        public virtual DbSet<ContactDetails> ContactDetails {get; set;}
         public RememberMeDbContext(DbContextOptions<RememberMeDbContext> options) : base(options)
         {
             

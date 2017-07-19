@@ -25,6 +25,8 @@ namespace RememberMe.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("LastUpdated");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255);

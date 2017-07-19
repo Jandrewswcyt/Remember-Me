@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RememberMe.Models
+namespace RememberMe.Core.Models
 {
     public class ContactDetails
     {

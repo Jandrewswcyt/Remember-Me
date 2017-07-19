@@ -1,6 +1,6 @@
 using AutoMapper;
 using RememberMe.Controllers.Resource;
-using RememberMe.Models;
+using RememberMe.Core.Models;
 
 namespace RememberMe.Mapping
 {
@@ -8,11 +8,12 @@ namespace RememberMe.Mapping
     {
         public MappingProfile()
         {
-            
             CreateMap<Friend, FriendResource>(); 
+            CreateMap<Friend, SaveFriendResource>(); 
             CreateMap<ContactDetails,ContactDetailsResource>();
             //API Resource to Domain
-            CreateMap<FriendResource,Friend>(); 
+            CreateMap<SaveFriendResource,Friend>().ForMember(f => f.Id, opt => opt.Ignore()); 
+            CreateMap<ContactDetailsResource,ContactDetails>(); 
         }
     }
 }

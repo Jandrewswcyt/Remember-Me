@@ -11,8 +11,8 @@ using System;
 namespace RememberMe.Migrations
 {
     [DbContext(typeof(RememberMeDbContext))]
-    [Migration("20170716114616_SeedData")]
-    partial class SeedData
+    [Migration("20170716192017_NewFriendMigration")]
+    partial class NewFriendMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,8 @@ namespace RememberMe.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("LastUpdated");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255);
@@ -33,6 +35,31 @@ namespace RememberMe.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Friends");
+                });
+
+            modelBuilder.Entity("RememberMe.Models.ContactDetails", b =>
+                {
+                    b.Property<int?>("FriendId");
+
+                    b.Property<string>("Email")
+                        .HasColumnName("Email")
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Phone")
+                        .HasColumnName("Phone")
+                        .HasMaxLength(255);
+
+                    b.HasKey("FriendId");
+
+                    b.ToTable("Friends");
+                });
+
+            modelBuilder.Entity("RememberMe.Models.ContactDetails", b =>
+                {
+                    b.HasOne("RememberMe.Models.Friend")
+                        .WithOne("ContactDetails")
+                        .HasForeignKey("RememberMe.Models.ContactDetails", "FriendId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
