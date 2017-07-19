@@ -71,7 +71,6 @@ namespace RememberMe.Controllers
             repository.Add(friend);
 
             await unitOfWork.CompleteAsync(); 
-
          
             return Ok(friend);
         }

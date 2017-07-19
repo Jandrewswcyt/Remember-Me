@@ -14779,11 +14779,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jandr\\Documents\\RememberMe\\RememberMe.Test\\RememberMe.Test.csproj",
+      "projectUniqueName": "c:\\Users\\jandr\\Documents\\RememberMe\\RememberMe.Test\\RememberMe.Test.csproj",
       "projectName": "RememberMe.Test",
-      "projectPath": "C:\\Users\\jandr\\Documents\\RememberMe\\RememberMe.Test\\RememberMe.Test.csproj",
+      "projectPath": "c:\\Users\\jandr\\Documents\\RememberMe\\RememberMe.Test\\RememberMe.Test.csproj",
       "packagesPath": "C:\\Users\\jandr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jandr\\Documents\\RememberMe\\RememberMe.Test\\obj\\",
+      "outputPath": "c:\\Users\\jandr\\Documents\\RememberMe\\RememberMe.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jandr\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -14800,8 +14800,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\jandr\\Documents\\RememberMe\\RememberMe\\RememberMe.csproj": {
-              "projectPath": "C:\\Users\\jandr\\Documents\\RememberMe\\RememberMe\\RememberMe.csproj"
+            "c:\\Users\\jandr\\Documents\\RememberMe\\RememberMe\\RememberMe.csproj": {
+              "projectPath": "c:\\Users\\jandr\\Documents\\RememberMe\\RememberMe\\RememberMe.csproj"
             }
           }
         }

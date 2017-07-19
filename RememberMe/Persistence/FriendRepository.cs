@@ -39,5 +39,10 @@ namespace RememberMe.Persistence
             context.Remove(friend); 
         }
 
+        public async Task<int> TotalFriends()
+        {
+            return await context.Friends.CountAsync(); 
+        }
+
     }
 }
