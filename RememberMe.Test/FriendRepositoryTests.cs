@@ -10,13 +10,16 @@ using RememberMe.Controllers.Resource;
 using Microsoft.EntityFrameworkCore;
 using RememberMe.Persistence;
 using Microsoft.Extensions.DependencyInjection;
+using Moq; 
 
 namespace RememberMe.Test
 {
     public class FriendRepositoryTests
     {
+        IMapper mapper; 
+
         [Fact]
-        public void CanAddToRepo()
+        public void Add_WhenCalled_AddsFriendToRepository()
         {
             //Arrange
             UnitOfWork work; 
@@ -25,14 +28,12 @@ namespace RememberMe.Test
             repo.Add(new Friend{Id = 4, Name = "Manjit"}); 
             work.Complete(); 
             //Assert
-            var friendFour = repo.GetFriend(4).Result; 
-            var friendTwo = repo.GetFriend(2).Result; 
-            Assert.Equal( friendFour.Name, "Manjit"); 
-            Assert.Equal( friendTwo.Name, "Jon"); 
+            var friend = repo.GetFriend(4).Result; 
+            Assert.Equal( friend.Name, "Manjit"); 
         }
 
         [Fact]
-        public void CanAddContactDetails()
+        public void Add_WhenCalled_HasCorrectContactDetails()
         {
             //Arrange 
             UnitOfWork work; 
@@ -48,7 +49,7 @@ namespace RememberMe.Test
         }
 
         [Fact]
-        public async void CanUpdateDetails()
+        public async void Repository_WillImplicitly_UpdateFriendDetails()
         {
             //Arrange 
             UnitOfWork work; 
@@ -60,15 +61,17 @@ namespace RememberMe.Test
             work.Complete(); 
             var friend = repo.GetFriend(4).Result; 
             friend.ContactDetails = cdTwo; 
-            friend.Name = "Jim Brown"; 
+            friend.Name = "Jim Brown";
+            work.Complete(); 
+        
+            var friendUpdated = repo.GetFriend(4).Result;  
             //Assert
             int totalFriends = await repo.TotalFriends(); 
             Assert.Equal(totalFriends, 4); 
-            Assert.Equal(friend.Name, "Jim Brown") ; 
-            Assert.Equal(cdTwo.Email, friend.ContactDetails.Email);
-            Assert.Equal(cdTwo.Phone, friend.ContactDetails.Phone);
+            Assert.Equal(friendUpdated.Name, friend.Name ) ; 
+            Assert.Equal(friendUpdated.ContactDetails.Email, friend.ContactDetails.Email);
+            Assert.Equal(friendUpdated.ContactDetails.Phone, friend.ContactDetails.Phone);
         }
-
         private  FriendRepository GetRepoContextWithData(out UnitOfWork unitOfWork)
         {
             var options = new DbContextOptionsBuilder<RememberMeDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options; 
@@ -84,6 +87,21 @@ namespace RememberMe.Test
             unitOfWork = new UnitOfWork(context);
             unitOfWork.Complete();  
             return repo;  
+        }
+   
+        private IMapper GetMapper()
+        {
+            Mapper.Initialize(cfg => 
+            {
+                cfg.CreateMap<Friend, FriendResource>(); 
+                cfg.CreateMap<Friend, SaveFriendResource>(); 
+                cfg.CreateMap<ContactDetails,ContactDetailsResource>();
+                //API Resource to Domain
+                cfg.CreateMap<SaveFriendResource,Friend>().ForMember(f => f.Id, opt => opt.Ignore()); 
+                cfg.CreateMap<ContactDetailsResource,ContactDetails>(); 
+            });
+
+            return Mapper.Instance; 
         }
 
     }
