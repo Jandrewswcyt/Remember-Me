@@ -10,14 +10,11 @@ using RememberMe.Controllers.Resource;
 using Microsoft.EntityFrameworkCore;
 using RememberMe.Persistence;
 using Microsoft.Extensions.DependencyInjection;
-using Moq; 
 
 namespace RememberMe.Test
 {
     public class FriendRepositoryTests
     {
-        IMapper mapper; 
-
         [Fact]
         public void Add_WhenCalled_AddsFriendToRepository()
         {
@@ -87,21 +84,6 @@ namespace RememberMe.Test
             unitOfWork = new UnitOfWork(context);
             unitOfWork.Complete();  
             return repo;  
-        }
-   
-        private IMapper GetMapper()
-        {
-            Mapper.Initialize(cfg => 
-            {
-                cfg.CreateMap<Friend, FriendResource>(); 
-                cfg.CreateMap<Friend, SaveFriendResource>(); 
-                cfg.CreateMap<ContactDetails,ContactDetailsResource>();
-                //API Resource to Domain
-                cfg.CreateMap<SaveFriendResource,Friend>().ForMember(f => f.Id, opt => opt.Ignore()); 
-                cfg.CreateMap<ContactDetailsResource,ContactDetails>(); 
-            });
-
-            return Mapper.Instance; 
         }
 
     }

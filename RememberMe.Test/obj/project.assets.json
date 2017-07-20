@@ -45,6 +45,27 @@
           "lib/netstandard1.6/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "Castle.Core/4.1.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.TraceSource": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Castle.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Castle.Core.dll": {}
+        }
+      },
       "Libuv/1.10.0-preview1-22040": {
         "type": "package",
         "dependencies": {
@@ -1470,6 +1491,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.StaticFiles.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.TestHost/2.0.0-preview2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting": "2.0.0-preview2-final"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.TestHost.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.TestHost.dll": {}
         }
       },
       "Microsoft.AspNetCore.WebSockets/2.0.0-preview2-final": {
@@ -3083,6 +3116,21 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "Moq/4.7.99": {
+        "type": "package",
+        "dependencies": {
+          "Castle.Core": "4.1.1",
+          "NETStandard.Library": "1.6.1",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Moq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Moq.dll": {}
         }
       },
       "NETStandard.Library/2.0.0-preview2-25401-01": {
@@ -5610,6 +5658,23 @@
         "lib/netstandard1.6/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
+    "Castle.Core/4.1.1": {
+      "sha512": "O+88tWlRvtYLTn4dgAENyOgaLcExeox73ledI92d72z4U9IGSiiO8n/gnTnWgEMpBuXIdcyzrXHdGtn0c5Dz/A==",
+      "type": "package",
+      "path": "castle.core/4.1.1",
+      "files": [
+        "ASL - Apache Software Foundation License.txt",
+        "CHANGELOG.md",
+        "LICENSE",
+        "castle.core.4.1.1.nupkg.sha512",
+        "castle.core.nuspec",
+        "lib/net35/Castle.Core.dll",
+        "lib/net40/Castle.Core.dll",
+        "lib/net45/Castle.Core.dll",
+        "lib/netstandard1.3/Castle.Core.dll",
+        "readme.txt"
+      ]
+    },
     "Libuv/1.10.0-preview1-22040": {
       "sha512": "uadBruGunMrdDGcKQV/usx90xwKqSe5ED67rMJnP3vGbiirGBxfzBZ2dJodgMvabFl+JPGN4VKQNgW5tad68bg==",
       "type": "package",
@@ -6603,6 +6668,17 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.StaticFiles.xml",
         "microsoft.aspnetcore.staticfiles.2.0.0-preview2-final.nupkg.sha512",
         "microsoft.aspnetcore.staticfiles.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.TestHost/2.0.0-preview2-final": {
+      "sha512": "N13roE7GyWvGyygIlSiXRQKFTJOsGF3Ew4jPUjzy9NvFPZXNy7+ajETJujV3FU7B9wzkoxg8n7KnLjFlXjSlVQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.testhost/2.0.0-preview2-final",
+      "files": [
+        "lib/netstandard2.0/Microsoft.AspNetCore.TestHost.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.TestHost.xml",
+        "microsoft.aspnetcore.testhost.2.0.0-preview2-final.nupkg.sha512",
+        "microsoft.aspnetcore.testhost.nuspec"
       ]
     },
     "Microsoft.AspNetCore.WebSockets/2.0.0-preview2-final": {
@@ -9088,6 +9164,21 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Moq/4.7.99": {
+      "sha512": "nABMpxtxUb14VoPd0p0maxqjjbpHV/1MpvFiq1Kwb9NhHFC7V/1E40XYSOB2GeQ8tfz0/RyMn8SlDcmw0MB71w==",
+      "type": "package",
+      "path": "moq/4.7.99",
+      "files": [
+        "lib/net45/Moq.dll",
+        "lib/net45/Moq.pdb",
+        "lib/net45/Moq.xml",
+        "lib/netstandard1.3/Moq.dll",
+        "lib/netstandard1.3/Moq.pdb",
+        "lib/netstandard1.3/Moq.xml",
+        "moq.4.7.99.nupkg.sha512",
+        "moq.nuspec"
       ]
     },
     "NETStandard.Library/2.0.0-preview2-25401-01": {
@@ -14766,8 +14857,11 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.1.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 2.0.1",
+      "Microsoft.AspNetCore.TestHost >= 2.0.0-preview2-final",
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170517-02",
       "Microsoft.NETCore.App >= 2.0.0-preview2-25407-01",
+      "Moq >= 4.7.99",
       "RememberMe >= 1.0.0",
       "xunit >= 2.2.0",
       "xunit.runner.visualstudio >= 2.2.0"
@@ -14836,6 +14930,18 @@
           "AutoMapper": {
             "target": "Package",
             "version": "6.1.1"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "2.0.1"
+          },
+          "Moq": {
+            "target": "Package",
+            "version": "4.7.99"
+          },
+          "Microsoft.AspNetCore.TestHost": {
+            "target": "Package",
+            "version": "2.0.0-preview2-final"
           }
         },
         "imports": [

@@ -32,7 +32,7 @@ namespace RememberMe
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IFriendRepository, FriendRepository>(); 
+            services.AddScoped<IFriendRepository, FriendRepository>(); 
             services.AddScoped<IUnitOfWork, UnitOfWork>(); 
             services.AddAutoMapper(); 
             services.AddDbContext<RememberMeDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));   
